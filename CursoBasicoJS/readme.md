@@ -2,7 +2,7 @@
 By: Diego de Granda, Platzi.
 
 
-## Capitulo 1. ¿Qué es javascript?
+## ¿Qué es javascript?
 
 <br>
 
@@ -54,7 +54,7 @@ Javascript es dinámico, ya que no necesita de un compilador para que el código
 > Javascript es Backwards, esto quiere decir que todas las versiones nuevas no van a romper tu código, sin embargo, no vas a poder usarlas en dicho proyecto, pero para poder utilizarlas, podemos usar herramientas como: **BABEL** ya que estas traducen el código de nuevas versiones a versiones estándares que entiende el navegador.
 
 <br><br>
-## Capitulo 2. ¿Por qué javascript?
+## ¿Por qué javascript?
 
 <br>
 
@@ -98,7 +98,7 @@ Igualmente, puedes construir aplicaciones dedicadas al IOT (Internet of Things),
 
 <br><br>
 
-## Capitulo 3. Elementos de un Lenguaje de Programación: Variables, Funciones y Sintaxis.
+## Elementos de un Lenguaje de Programación: Variables, Funciones y Sintaxis.
 
 <br>
 
@@ -257,7 +257,7 @@ Igualmente, puedes construir aplicaciones dedicadas al IOT (Internet of Things),
 
 <br><br>
 
-## Capitulo 5. Hoisting
+## Hoisting
 
 > Hoisting es un término para describir que las declaraciones de variables y funciones son desplazadas a la parte superior del scope más cercano, scope global o de función. Esto sucede solamente con las declaraciones y no con las asignaciones.
 
@@ -311,4 +311,141 @@ Pero, lo que realmente sucede es que JavaScript guarda la función en memoria en
 
 
 <br><br>
-## Capitulo 6. Coerción
+## Coerción
+
+> La coerción consiste en transformar de un tipo de dato a otro de una variable. Existen dos tipos de coerción: implícita y explícita.
+
+
+> Coerciones implicitas.
+> - Consiste en la transformación de tipos mediante la ayuda de JavaScript. Esto ocurre en operaciones de diferentes tipos, ya que es un lenguaje débil y dinámicamente tipado.
+
+```js
+    var a = 4 + "7"
+    console.log(typeof a) // string
+
+    var b = 4 * "7"
+    console.log(typeof b) // number
+```
+
+
+> Coerciones explicitas.
+
+> - La coerción explícita es la transformación de tipos de datos que controlamos el resultado. Para realizar estas transformaciones utiliza las funciones Number(), String() y Boolean(), para convertir a tipo número, string y lógico, respectivamente.
+
+```js
+    Number("47") // 47
+    String(51) // "51"
+    Boolean(1) // true
+```
+
+<br><br>
+
+## Valores: Truthy y Falsy
+
+> Los valores truthy y falsy son valores verdaderos y falsos cuando se realiza una coerción de cualquier tipo a booleano, respectivamente. Esto es importante para manejar condicionales, ya que una estructura condicional evalúa si un valor es verdadero o falso en un contexto booleano.
+
+Falsy
+```js
+    Boolean() —> sin ningun valor es false
+    Boolean(0) —> false
+    Boolean(null) —> false
+    Boolean(NaN) —> false // NaN es Not and Number
+    Boolean(Undefined) —> false
+    Boolean(false) —> false
+    Boolean("") —> false
+```
+
+
+Truthy
+
+```js
+    Boolean(1) —> true //cualquier numero que no sea igual a cero es true
+    Boolean(“a”) —> true
+    Boolean(" ") —> true // siendo un espacio el valor es true
+    Boolean([]) —> true // un array nos da un true
+    Boolean({}) —> true // un objeto nos da el valor de true
+    Boolean(function() {}) —> true //una funcion tambien es true
+    Boolean(true) —> true
+```
+
+
+<br><br>
+
+## Operadores: Asignación, Comparación y Aritméticos
+<br>
+
+![Operadores](./imgMD/operadores.png)
+
+
+
+ <br><br>
+
+ ## Condicionales: If, Else, else if
+
+ > Los condicionales son estructuras de control que te permiten evaluar diferentes expresiones y realizar determinadas acciones en JavasScript.
+
+ Ejemplo de un if
+
+ ```js
+    var edad = 17;
+
+    if (edad == 18) {
+        console.log("Puedes votar, será tu 1era votacion");
+    }
+    else if (edad > 18) {
+        console.log("Puedes votar de nuevo");
+    }
+    else {
+        console.log("Aun no puedes votar");
+    }
+ ```
+
+ <br>
+
+ ### Operador ternario
+ 
+ > El operador ternario consiste en evaluar si una expresión es verdadera o falsa. Parecido a un condicional, pero en una línea de código. Esto sirve para evaluar una condición de manera rápida. La estructura que sigue es la siguiente y se lee como: "La condición es verdadera (?), si es así ejecuta el “Bloque verdadero”, caso contrario (:), ejecuta el “Bloque falso”.
+
+ ```js
+    function esPar(numero){
+        return numero % 2 === 0 ? "Es par" : "No es par"
+    }
+
+    esPar(2) // "Es par"
+    esPar(3) // "No es par"
+ ```
+
+
+ <br><br>
+
+ ## Switch
+
+> La estructura switch es otra manera de evaluar condiciones, la diferencia con if es que las condiciones deben ser iguales a un caso o algo específico.
+
+> Cuándo utilizar switch
+> - Deberías utilizar switch cuando tengas una gran cantidad de casos, que con el condicional if produciría más cantidad de código. El problema con switch es que no es muy utilizado y todo se resuelve con if. Sin embargo, conocer esta estructura te puede permitir escribir código más legible en ciertos casos.
+
+sintaxis:
+```js
+    function semaforo(color) {
+        switch (color) {
+            case "verde": 
+                console.log("¡Sigue!")
+                break;
+
+            case "amarillo": 
+                console.log("¡Detente!")
+                break;
+            
+            case "rojo": 
+                console.log("¡No puedes avanzar!")
+                break;
+            
+            default: 
+                console.log("¡No reconozco ese color! :(")
+                break;
+        }
+}
+
+semaforo("verde") //'¡Sigue!'
+```
