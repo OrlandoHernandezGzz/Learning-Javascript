@@ -223,7 +223,7 @@ Igualmente, puedes construir aplicaciones dedicadas al IOT (Internet of Things),
 
 <br><br>
 
-## Capitulo 4. Scope
+## Scope
 > El scope es cada uno de los entornos donde las variables tienen alcance dentro del código de JavaScript. En otras palabras, determina que valor tendrá la variable dependiendo dónde se encuentre.
 
 - Tipos de scope
@@ -449,3 +449,75 @@ sintaxis:
 
 semaforo("verde") //'¡Sigue!'
 ```
+
+
+<br><br>
+
+## Arrays
+
+> Un **Array** es un tipo de estructura de datos, objeto. Puede guardar datos distintos dentro, guarda los datos en forma de lista.
+
+Ejemplo de como declarar un arreglo.
+```js
+    var frutas = ["Manzana", "Plátano", "Cereza", "Fresa"];
+```
+
+Algunas propiedades y métodos de arreglos:
+
+- **.lenght** devuelve la longitud del array.
+- **.push()** agrega elementos al final de array.
+- **.pop()** elimina un elemento del array.
+- **.unshift()** agrega un elemento al array, pero lo agrega en primer lugar.
+- **.shift()** elimina el elemento que está en el inicio del array.
+- **.indexOf** devuelve la posición de un elemento del array.
+
+
+<br><br>
+
+## Ciclos
+
+> Los bucles pueden ejecutar un bloque de código varias veces. JavaScript admite diferentes tipos de bucles:
+
+> - for - recorre un bloque de código varias veces
+> - for/in - recorre las propiedades de un objeto
+> - for/of - recorre los valores de un objeto iterable
+> - while - recorre un bloque de código mientras se cumple una condición específica
+> - do/while - también recorre un bloque de código mientras se cumple una condición específica
+
+```js
+    var estudiantes = ["Maria", "Sergio", "Rosa", "Daniel"];
+
+    function saludarEstudiantes(estudiante) {
+    console.log(`Hola, ${estudiante}`);
+    }
+
+    for (var i = 0; i < estudiantes.length; i++ ) {
+    saludarEstudiantes(estudiantes[i]);
+    }
+
+    for (var estudiante of estudiantes) {
+    saludarEstudiantes(estudiante);
+    }
+```
+
+### While
+
+> Para el ciclo while no conocemos la cantidad de veces que la estructura repetirá una o varias instrucciones. Aunque también se puede acoplar para que realice un determinado número de repeticiones.
+
+> Por ejemplo, si queremos que un usuario ingrese un valor mayor a 0, no sabremos cuántas veces se equivocará. También, si queremos que un programa se ejecute hasta que el usuario ingrese una opción para salir.
+
+```js
+    var estudiantes = ["Maria", "Sergio", "Rosa", "Daniel"];
+
+    function saludarEstudiantes(estudiante) {
+    console.log(`Hola, ${estudiante}`);
+    }
+
+    while(estudiantes.length > 0) {
+        console.log(estudiantes);
+        var estudiante = estudiantes.shift();
+        saludarEstudiantes(estudiante);
+    }
+```
+
+
