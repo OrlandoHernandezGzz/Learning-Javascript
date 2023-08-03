@@ -521,3 +521,105 @@ Algunas propiedades y métodos de arreglos:
 ```
 
 
+ <br><br>
+
+ ## Objetos.
+
+ > Un objeto es una estructura de datos que permite almacenar valores mediante propiedad - valor a través de la sintaxis de llaves ({}) y separados por comas.
+
+ ¿Qué son los atributos y métodos?
+
+ > En programación orientada a objetos, un objeto es una representación de la realidad, en el cual sus características propias se definen como atributos y sus acciones se definen como métodos.
+
+ > En otras palabras, los atributos son las variables y los métodos son las funciones propias de cada objeto.
+
+ ```js
+    var miAuto = {
+        marca: "Toyota",
+        modelo: "Corolla",
+        "año": 2020,
+        detalle: function () {
+            console.log("Es un auto")
+        }
+    }   
+ ```
+
+ Formas de acceder al valor de un objeto.
+
+```js
+    // Notación de corchetes
+    objeto["propiedad"]
+    miAuto["marca"] // "Toyota"
+    miAuto["detalle"]() // "Es un auto"
+
+    // Notación de punto
+    objeto.propiedad
+    miAuto.marca // "Toyota"
+    miAuto.modelo // "Corolla"
+    miAuto.añó // 2020
+    miAuto.detalle // ƒ detalle()
+    miAuto.detalle() // "Es un auto"
+ ```
+
+
+### Cómo generar varios objetos a partir de una función constructora
+
+> Existe un problema al momento de construir varios objetos a partir de un código base, los atributos deben cambiar con respecto a la nueva información. Para esto se utiliza una función constructora.
+
+> Una función constructora sirve para crear varios objetos a partir de nueva información, esto es recibido argumentos.
+
+> Para crear una función constructora, debemos definir los parámetros correspondientes, que serán los atributos del objeto, que cambiarán con la nueva información mediante argumentos. Estos argumentos deben hacer referencia a cada uno del nuevo objeto, esto mediante el objeto contexto this.
+
+Ejemplo:
+
+```js
+    function Auto(brand, model, year){
+        this.marca = brand
+        this.modelo = model
+        this.año = year
+        this.detalle = function () {
+            console.log(`Auto ${this.modelo} del ${this.año}.`)
+        }
+    }
+
+    var otroAuto = new Auto("Tesla", "Model 3", 2021)
+    var otroAuto2 = new Auto("Suzuki", "K-20", 2019)
+    var otroAuto3 = new Auto("Ferrari", "Model N", 2018)
+```
+
+<br><br>
+
+## Métodos de recorridos de Arrays
+
+> filter : nos permite filtrar solo los elementos que deseamos (según ciertos criterios) y devolverlos en un nuevo array.
+
+> map : crea un nuevo array con los resultados de la llamada a la función indicada aplicados a cada uno de sus elementos.
+
+```js
+    var articulos = [
+        { nombre: '📱', precio: 1000 },
+        { nombre: '💻', precio: 1500 },
+        { nombre: '🖥', precio: 2000 },
+        { nombre: '⌨️', precio: 100 },
+        { nombre: '🖱', precio: 70 },
+        { nombre: '🚗', precio: 30000 },
+    ];
+
+    // Método Filter
+    var articulosFiltrados = articulos.filter(function(articulo) {
+        return articulo.precio <= 500;
+    });
+
+    // Método Map
+    var nombreArticulos = articulos.map(function(articulo) {
+        return articulo.nombre;
+    });
+
+    articulosFiltrados;
+    // (2) [{…}, {…}]
+    //   0: {nombre: "⌨️", precio: 100}
+    //   1: {nombre: "🖱", precio: 70}
+
+    nombreArticulos; // (5) ["📱", "💻", "🖥", "⌨️", "🚗"]
+
+```
