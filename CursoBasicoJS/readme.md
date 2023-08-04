@@ -621,5 +621,59 @@ Ejemplo:
     //   1: {nombre: "🖱", precio: 70}
 
     nombreArticulos; // (5) ["📱", "💻", "🖥", "⌨️", "🚗"]
-
 ```
+
+
+<br><br>
+
+## Recorriendo Arrays con .find(), .forEach() y .some()
+
+El método find.
+> consiste en encontrar el primer elemento de un array que cumpla con la condición especificada en la función (callback). Si ningún elemento cumpla con la condición, retornará undefined.
+
+```js
+    var algunArticulo = articulos.find(function (articulo) {
+        return (articulo.nombre = "Laptop")
+    })
+    console.log(algunArticulo)
+    /* 
+        { nombre: 'Laptop', costo: 3000 }
+    */
+```
+
+
+> La función, que recibe como argumento, utiliza tres parámetros opcionales:
+> - El valor actual del elemento iterado. Es decir, si es la primera iteración, será el primer elemento, y así sucesivamente.
+> - El índice del elemento iterado. Es decir, si es la primera iteración, será el índice 0, y así sucesivamente.
+> - El array que está iterando.
+
+```js
+    array.find(function(element, index, array))
+```
+
+El método forEach.
+> consiste en ejecutar una función (callback) para cada uno de los elementos iterados. Iterar significa repetir una acción varias veces. Este método no retorna ningún valor.
+
+```js
+    articulos.forEach(function (articulo) {
+        console.log(articulo)
+    })
+    /* 
+        { nombre: 'Bici', costo: 3000 }
+        { nombre: 'TV', costo: 2500 }
+        ...
+        { nombre: 'Audifonos', costo: 1700 }
+    */
+```
+
+El método some.
+> es inmutable y consiste retornar un valor lógico verdadero si existe al menos un elemento que cumpla la condición establecida en la función (callback).
+
+```js
+    var existeArticulo = articulos.some(function (articulo) {
+        return articulo.costo <= 700
+    })
+    console.log(existeArticulo) // true
+```
+
+
